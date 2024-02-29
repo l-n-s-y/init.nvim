@@ -38,6 +38,8 @@ Plug 'OmniSharp/omnisharp-vim' " C# autocompletion
 call plug#end()
 
 let g:coc_node_path = 'C:\Program Files\nodejs\node.exe'
+" On error 'build/index.js not found, please install dependencies...' run:
+" :call coc#util#install()
 
 set encoding=utf-8
 set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
