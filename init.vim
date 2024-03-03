@@ -4,19 +4,20 @@ filetype plugin indent on
 set wrap!
 set number
 set autoindent
-set tabstop=4
-":set shiftwidth=4
+"set tabstop=4
+:set shiftwidth=4 smarttab
 ":set smarttab
 ":set softtabstop=4
 set mouse=a
 set noexpandtab
+set clipboard^=unnamed,unnamedplus " Allow ctrl-v pasting
 
 call plug#begin()
 
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
-Plug 'https://github.com/vim-airline/vim-airline' " Status bar
+"Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
@@ -26,6 +27,9 @@ Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 
 Plug 'neoclide/coc.nvim', {'branch':'release'}
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'ryanoasis/vim-devicons'
@@ -37,7 +41,7 @@ Plug 'OmniSharp/omnisharp-vim' " C# autocompletion
 
 call plug#end()
 
-let g:coc_node_path = 'C:\Program Files\nodejs\node.exe'
+let g:coc_node_path = "C:/Program\ Files/nodejs/node.exe"
 " On error 'build/index.js not found, please install dependencies...' run:
 " :call coc#util#install()
 
@@ -71,6 +75,10 @@ let g:NERDTreeDirArrowCollapsible="~"
 ":CocCommand snippets.edit... FOR EACH FILE TYPE
 
 " air-line
+
+" Windows-specific
+set guifont=Source\ Code\ Pro\ for\ Powerline:h15:cANSI	
+
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
