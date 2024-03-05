@@ -119,3 +119,19 @@ set guicursor+=i:block-Cursor
 vnoremap < <gv
 vnoremap > >gv
 
+
+" Godbolt Assembly Display
+lua << EOF
+    require("godbolt").setup({
+	languages = {
+	    cpp = { compiler = "g122", options = {} },
+	    c = { compiler = "cg122", options = {} },
+	    rust = { compiler = "r1650", options = {} },
+	},
+	quickfix = {
+	    enable = false,
+	    auto_open = false
+	},
+	url = "https://godbolt.org" -- Can be changed to a different godbolt instance
+    })
+EOF
