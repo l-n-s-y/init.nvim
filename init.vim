@@ -1,3 +1,4 @@
+set nocompatible
 syntax enable
 filetype plugin indent on
 
@@ -11,6 +12,12 @@ set autoindent
 set mouse=a
 set noexpandtab
 set clipboard^=unnamed,unnamedplus " Allow ctrl-v pasting
+set path+=**
+
+set statusline^=%{coc#status()}
+autocmd User CocStatusChange redrawstatus
+
+set wildmenu
 
 call plug#begin()
 
@@ -39,9 +46,19 @@ Plug 'https://github.com/neoclide/coc.nvim'  " Coc
 Plug 'https://github.com/rust-lang/rust.vim' " rust-vim
 Plug 'OmniSharp/omnisharp-vim' " C# autocompletion 
 
+
+" Disable providers
+let g:loaded_perl_provider = 0
+
+
 call plug#end()
 
-let g:coc_node_path = "C:/Program\ Files/nodejs/node.exe"
+if has("win32")
+    "let g:coc_node_path = "C:/Program Files/nodejs/node.exe"
+else
+    let g:coc_node_path = "/usr/bin/node"
+endif
+
 " On error 'build/index.js not found, please install dependencies...' run:
 " :call coc#util#install()
 
